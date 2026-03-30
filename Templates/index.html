@@ -185,73 +185,73 @@ button:active {
 <div class="card">
 <h1> Cardio Predictor</h1>
 
-<form class="form-grid">
+<form class="form-grid" action="/Predict" method="POST">
 
 <h3 class="full">Basic Info</h3>
-<input type="number" placeholder="Age">
-<select>
-<option>Gender</option>
-<option>Male</option>
-<option>Female</option>
+<input type="number" name="age_years" placeholder="Age" required>
+
+<select name="gender" required>
+  <option value="" disabled selected hidden>Gender</option>
+  <option value="1">Male</option>
+  <option value="2">Female</option>
 </select>
 
 <h3 class="full">Body Metrics</h3>
-<input type="number" placeholder="Height">
-<input type="number" placeholder="Weight">
-<input type="number" placeholder="BMI" class="full">
+<input type="number" name="height" placeholder="Height (cm)" required>
+<input type="number" name="weight" placeholder="Weight (kg)" required>
 
 <h3 class="full">Blood Pressure</h3>
-<input type="number" placeholder="Systolic BP">
-<input type="number" placeholder="Diastolic BP">
-<select class="full">
-<option>BP Category</option>
-<option>Normal</option>
-<option>Elevated</option>
-<option>Hypertension</option>
-</select>
+<input type="number" name="ap_hi" placeholder="Systolic BP" required>
+<input type="number" name="ap_lo" placeholder="Diastolic BP" required>
 
 <h3 class="full">Health Levels</h3>
-<select>
-<option>Cholesterol</option>
-<option>Normal</option>
-<option>Above Normal</option>
-<option>High</option>
+<select name="cholesterol" required>
+<option value="" disabled selected hidden>Cholesterol</option>
+<option value="1">Normal</option>
+<option value="2">Above Normal</option>
+<option value="3">High</option>
 </select>
 
-<select>
-<option>Glucose</option>
-<option>Normal</option>
-<option>Above Normal</option>
-<option>High</option>
+<select name="gluc" required>
+<option value="" disabled selected hidden>Glucose</option>
+<option value="1">Normal</option>
+<option value="2">Above Normal</option>
+<option value="3">High</option>
 </select>
 
 <h3 class="full">Lifestyle</h3>
-<select>
-<option>Smoking</option>
-<option>Yes</option>
-<option>No</option>
+<select name="smoke" required>
+<option value="" disabled selected hidden>Smoking</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
 </select>
 
-<select>
-<option>Alcohol</option>
-<option>Yes</option>
-<option>No</option>
+<select name="alco" required>
+<option value="" disabled selected hidden>Alcohol</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
 </select>
 
-<select class="full">
-<option>Physical Activity</option>
-<option>Active</option>
-<option>Not Active</option>
+<select name="active" class="full" required>
+<option value="" disabled selected hidden>Physical Activity</option>
+<option value="1">Active</option>
+<option value="0">Not Active</option>
 </select>
 
 <div class="button-group">
-<button>Analyze ⚡</button>
+<button type="submit">Analyze ⚡</button>
 <button type="reset" class="reset-btn">Reset 🔄</button>
 </div>
 
 </form>
-</div>
 
+
+<h3 style="margin-top:20px; color:#00ffcc;">
+    {{ prediction_text }}
+</h3>
+
+</form>
+</div>
 <div class="image-box">
 <img src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png">
 </div>
@@ -260,3 +260,8 @@ button:active {
 
 </body>
 </html>
+
+
+
+
+
